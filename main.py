@@ -120,7 +120,7 @@ if __name__ == "__main__":
     
 
 
-    from final_torch_model import Q_Network
+    from final_torch_model import QNetwork as FinalQNetwork
     # final policy
     frames = []
     env.reset()
@@ -131,7 +131,7 @@ if __name__ == "__main__":
         torch.load("blue.pt", weights_only=True, map_location="cpu")
     )
 
-    q_network_red_2 = Q_Network(
+    q_network_red_2 = FinalQNetwork(
         env.observation_space("red_0").shape, env.action_space("red_0").n
     )
     q_network_red_2.load_state_dict(
